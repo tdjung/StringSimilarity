@@ -26,6 +26,34 @@ TEST_F(StringCheckerFixture, string4) {
 	lengthCheck(30, "AA", "AAE");
 }
 
+TEST(StringCheckAlpha, tc1) {
+	StringChecker sc;
+
+	double alpha_point = sc.alphaPoint("ASD", "DSA");
+	EXPECT_DOUBLE_EQ(40, alpha_point);
+}
+
+TEST(StringCheckAlpha, tc2) {
+	StringChecker sc;
+
+	double alpha_point = sc.alphaPoint("A", "BB");
+	EXPECT_DOUBLE_EQ(0, alpha_point);
+}
+
+TEST(StringCheckAlpha, tc3) {
+	StringChecker sc;
+
+	double alpha_point = sc.alphaPoint("AAABB", "BA");
+	EXPECT_DOUBLE_EQ(40, alpha_point);
+}
+
+TEST(StringCheckAlpha, tc4) {
+	StringChecker sc;
+
+	double alpha_point = sc.alphaPoint("AA", "AAE");
+	EXPECT_DOUBLE_EQ(20, alpha_point);
+}
+
 int main() {
 	::testing::InitGoogleMock();
 	return RUN_ALL_TESTS();
