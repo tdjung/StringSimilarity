@@ -5,7 +5,7 @@ class StringCheckerFixture : public testing::Test {
 public:
 	StringChecker sc;
 
-	void lengthCheck(double expectPoint, string firstString, string secondString) {
+	void lengthCheck(double expectPoint, const string& firstString, const string& secondString) {
 		EXPECT_DOUBLE_EQ(expectPoint, sc.lengthPoint(firstString, secondString));
 	}
 };
