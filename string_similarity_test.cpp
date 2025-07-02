@@ -1,39 +1,29 @@
 #include "gmock/gmock.h"
 #include "string_similarity.cpp"
 
-TEST(Length, tc1) {
-
+class StringCheckerFixture : public testing::Test {
+public:
 	StringChecker sc;
 
-	double length_point = sc.lengthPoint("ASD", "DSA");
-	
-	EXPECT_DOUBLE_EQ(60, length_point);
+	void lengthCheck(double expectPoint, string firstString, string secondString) {
+		EXPECT_DOUBLE_EQ(expectPoint, sc.lengthPoint(firstString, secondString));
+	}
+};
+
+TEST_F(StringCheckerFixture, string1) {
+	lengthCheck(60,"ASD", "DSA");
 }
 
-TEST(Length, tc2) {
-
-	StringChecker sc;
-
-	double length_point = sc.lengthPoint("A", "BB");
-
-	EXPECT_DOUBLE_EQ(0, length_point);
+TEST_F(StringCheckerFixture, string2) {
+	lengthCheck(0 ,"A", "BB");
 }
 
-TEST(Length, tc3) {
-
-	StringChecker sc;
-
-	double length_point = sc.lengthPoint("AAABB", "BAA");
-
-	EXPECT_DOUBLE_EQ(36, length_point);
+TEST_F(StringCheckerFixture, string3) {
+	lengthCheck(36, "AAABB", "BAA");;
 }
 
-TEST(Length, tc4) {
-
-	StringChecker sc;
-
-	double length_point = sc.lengthPoint("AA", "AAE");
-	EXPECT_DOUBLE_EQ(40, length_point);
+TEST_F(StringCheckerFixture, string4) {
+	lengthCheck(40, "AA", "AAE");
 }
 
 int main() {
