@@ -12,6 +12,10 @@ public:
 	void alphaCheck(double expectPoint, const string& firstString, const string& secondString) {
 		EXPECT_DOUBLE_EQ(expectPoint, sc.alphaPoint(firstString, secondString));
 	}
+
+	void similarityCheck(double expectPoint, const string& firstString, const string& secondString) {
+		EXPECT_DOUBLE_EQ(expectPoint, sc.stringSimilarityPoint(firstString, secondString));
+	}
 };
 
 TEST_F(StringCheckerFixture, lenghCheckString1) {
@@ -44,6 +48,14 @@ TEST_F(StringCheckerFixture, alphaCheckString3) {
 
 TEST_F(StringCheckerFixture, alphaCheckString4) {
 	alphaCheck(20, "AA", "AAE");
+}
+
+TEST_F(StringCheckerFixture, StringSimilarityPoint1) {
+	similarityCheck(0, "A", "BBB");
+}
+
+TEST_F(StringCheckerFixture, StringSimilarityPoint2) {
+	similarityCheck(50, "AA", "AAE");
 }
 
 int main() {

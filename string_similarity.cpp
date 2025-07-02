@@ -7,6 +7,13 @@ using std::set;
 
 class StringChecker {
 public:
+	double stringSimilarityPoint(const string& firstString, const string& secondString) {
+		double totalPoint = lengthPoint(firstString, secondString);
+		totalPoint += alphaPoint(firstString, secondString);
+
+		return totalPoint;
+	}
+
 	double lengthPoint(const string& firstString, const string& secondString) {
 		if (isSameLength(firstString, secondString)) return LENGTH_CHECK_MAX_POINT;
 		if (isDoubleLength(firstString, secondString)) return LENGTH_DOUBLE_DIFF_POINT;
@@ -19,7 +26,7 @@ public:
 		int same_type_count = alphaSameTypeCount(firstString, secondString);
 
 		if (diff_type_count == 0)
-			throw std::invalid_argument("input string size가 둘 다 0입니다");
+			throw std::invalid_argument("firstString & secondString length 0");
 
 		return static_cast<double>(same_type_count) / diff_type_count * ALPHA_CHECK_MAX_POINT;
 	}
