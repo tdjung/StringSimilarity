@@ -19,11 +19,11 @@ TEST_F(StringCheckerFixture, string2) {
 }
 
 TEST_F(StringCheckerFixture, string3) {
-	lengthCheck(36, "AAABB", "BAA");;
+	lengthCheck(20, "AAABB", "BAA");;
 }
 
 TEST_F(StringCheckerFixture, string4) {
-	lengthCheck(40, "AA", "AAE");
+	lengthCheck(30, "AA", "AAE");
 }
 
 int main() {

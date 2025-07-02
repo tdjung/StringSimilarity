@@ -20,9 +20,9 @@ public:
 	double partialPoint(std::string& firstString, std::string& secondString)
 	{
 		if (firstString.size() > secondString.size())
-			return (1 - (double)(firstString.size() - secondString.size()) / firstString.size()) * LENGTH_CHECK_MAX_POINT;
+			return (1 - (double)(firstString.size() - secondString.size()) / secondString.size()) * LENGTH_CHECK_MAX_POINT;
 		else
-			return (1 - (double)(secondString.size() - firstString.size()) / secondString.size()) * LENGTH_CHECK_MAX_POINT;
+			return (1 - (double)(secondString.size() - firstString.size()) / firstString.size()) * LENGTH_CHECK_MAX_POINT;
 	}
 private:
 	const double LENGTH_CHECK_MAX_POINT = 60;
